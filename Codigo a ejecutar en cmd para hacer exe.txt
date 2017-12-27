@@ -1,0 +1,1 @@
+pyinstaller --paths C:\Windows\WinSxS\amd64_avast.vc140.crt_fcc99ee6193ebbca_14.0.25325.0_none_586e9d411a1940c6 Csv.py -F
