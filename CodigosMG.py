@@ -20,7 +20,7 @@ codigos_tipos = {
 }
 
 codigos_centros = {
-    "MesaTropera": "5-01-01",
+    "MammaGaucha": "5-01-01",
     "CasaTropera": "6-01-01",
     "CentroTropera": "9-01-01"
 }

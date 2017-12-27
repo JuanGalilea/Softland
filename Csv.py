@@ -1,12 +1,11 @@
 print("INICIALIZANDO.......")
 print("")
 print("Programado por: Juan Galilea")
-print("version 1.1.1")
+print("version 1.2.0")
 import logging
 import sys
 import tkinter as tk
 from datetime import datetime, timedelta
-
 from API import extract_sheet
 
 
@@ -58,8 +57,9 @@ correlativo = input("INGRESE CORRELATIVO INTERNO DEL PRIMER DOCUMENTO: ")
 while not str.isnumeric(correlativo):
     correlativo = input("VALOR INCORRECTO, INGRESE UN VALOR NUMERICO: ")
 registro = []
-
+print("")
 print("ELIJA ARCHIVO DEL SII")
+print("")
 try:
     with open(filedialog.askopenfilename(title="seleccione csv del SII", filetypes=[("CSV (*.csv)", ".csv")]), "r",
               encoding='utf8') as file:
@@ -122,7 +122,9 @@ except UnicodeDecodeError:
 
 datos_tropero = datos_tropero[1:]
 aux = list(filtro_tropero(aux, datos_tropero))
-separad = input("Ingrese separador del archivo CVMOVIM")
+print("")
+separad = input("INGRESE EL SEPARADOR DEL ARCHIVO CVMOVIM :")
+print("")
 print("SELECCIONE ARCHIVO CVMOVIM ACTUALIZADO")
 try:
     movim_softland = cargar_csv(
@@ -135,9 +137,9 @@ except UnicodeDecodeError:
     sys.exit()
 
 print("PREPARANDO FILTRO CVMOVIM...")
-
+print("")
 ano = input("INGRESE AÑO A TRABAJAR: ")
-
+print("")
 while not ano in ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028"]:
     ano = input("INGRESE AÑO VÁLIDO: ")
 
@@ -155,7 +157,9 @@ final = []
 for i in resultados:
     final += i
 print(f"NUMERO DE MOVIMIENTOS A INGRESAR = {len(final)}")
-separad = input("Ingrese separador del archivo de salida")
+print("")
+separad = input("INGRESE EL SEPARADOR DEL ARCHIVO DE SALIDA :")
+print("")
 try:
     guardar_csv(final)
 except FileNotFoundError:
