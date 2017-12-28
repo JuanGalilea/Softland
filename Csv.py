@@ -1,7 +1,7 @@
 print("INICIALIZANDO.......")
 print("")
 print("Programado por: Juan Galilea")
-print("version 1.2.0")
+print("version 1.2.1")
 import logging
 import sys
 import tkinter as tk
@@ -122,14 +122,12 @@ except UnicodeDecodeError:
 
 datos_tropero = datos_tropero[1:]
 aux = list(filtro_tropero(aux, datos_tropero))
-print("")
-separad = input("INGRESE EL SEPARADOR DEL ARCHIVO CVMOVIM :")
+
 print("")
 print("SELECCIONE ARCHIVO CVMOVIM ACTUALIZADO")
 try:
     movim_softland = cargar_csv(
-        filedialog.askopenfilename(title="Seleccione csv de cwmovim de softland", filetypes=[("CSV (*.csv)", ".csv")]),
-        separador=separad)
+        filedialog.askopenfilename(title="Seleccione csv de cwmovim de softland", filetypes=[("CSV (*.csv)", ".csv")]))
 except FileNotFoundError:
     exit()
 except UnicodeDecodeError:

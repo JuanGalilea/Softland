@@ -75,13 +75,21 @@ def diccionario_csv(direccion):
     return res
 
 
-def cargar_csv(direccion,separador=";"):
+def cargar_csv(direccion):
     with open(direccion, "r") as file:
         res = []
+        separador=""
         for linea in file:
+            if separador=="":
+                separador=get_separator(linea)
             res.append(linea.replace("\n", "").split(separador))
     return res
 
+def get_separator(linea):
+    if linea.count(";")>linea.count(","):
+        return ";"
+    else:
+        return ","
 
 def trabajar_lineas(linea,separador=";"):
     linea = linea.strip("\n")
@@ -145,7 +153,7 @@ def creador_lineas(lista,separador=";"):
 
 def guardar_csv(datos,separador=";"):
     with open(filedialog.asksaveasfilename(title="Indique archivo de salida", filetypes=[("CSV (*.csv)", ".csv")],
-                                           defaultextension=".csv"), "w") as file:
+                                           defaultextension=".csv"), "w",encoding="latin-1") as file:
         # file.write(
         #    "Codigo Plan de Cuenta;Monto al Debe Moneda Base;Monto al Haber Moneda Base;Descripcion Movimiento;\
         # Equivalencia Moneda;Monto al Debe Moneda Adicional;Monto al Haber Moneda Adicional;Codigo Condicion de Venta;\
